@@ -20,7 +20,7 @@ import me.night.giveitem.command.GiveItemCommand;
 import me.night.giveitem.config.MessageConfig;
 import me.night.giveitem.config.PluginConfig;
 
-public final class ItemPlugin extends DreamBukkitPlatform implements DreamBukkitConfig, DreamPersistence {
+public final class ItemPlugin extends DreamBukkitPlatform implements DreamBukkitConfig {
 
     @Getter private static ItemPlugin itemPlugin;
 
@@ -31,13 +31,8 @@ public final class ItemPlugin extends DreamBukkitPlatform implements DreamBukkit
 
     @Override
     public void enable(@NonNull ComponentManager componentManager) {
-        this.registerInjectable(BukkitTasker.newPool(this));
-        this.registerInjectable(BukkitMenuProvider.create(this));
         this.registerInjectable(BukkitCommandProvider.create(this, this.getInjector()));
-
         componentManager.registerResolver(CommandComponentResolver.class);
-        componentManager.registerResolver(ListenerComponentResolver.class);
-        componentManager.registerResolver(RunnableComponentResolver.class);
 
         componentManager.registerResolver(ConfigurationComponentResolver.class);
         componentManager.registerComponent(MessageConfig.class, messageConfig ->
@@ -62,16 +57,7 @@ public final class ItemPlugin extends DreamBukkitPlatform implements DreamBukkit
 
     @Override
     public @NonNull OkaeriSerdesPack getConfigSerdesPack() {
-        return registry -> {
-            registry.register(new BukkitNoticeSerdes());
-        };
-    }
-
-    @Override
-    public @NonNull OkaeriSerdesPack getPersistenceSerdesPack() {
-        return registry -> {
-
-        };
+        return registry -> registry.register(new BukkitNoticeSerdes());
     }
 
 }

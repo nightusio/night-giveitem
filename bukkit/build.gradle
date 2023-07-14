@@ -37,15 +37,6 @@ dependencies {
     implementation "eu.okaeri:okaeri-configs-serdes-bukkit:4.0.9"
     implementation "eu.okaeri:okaeri-configs-serdes-commons:4.0.9"
 
-    // -- persistence data --
-    implementation 'eu.okaeri:okaeri-persistence-flat:2.0.0-beta.1'
-    implementation 'eu.okaeri:okaeri-persistence-jdbc:2.0.0-beta.1'
-    implementation 'eu.okaeri:okaeri-persistence-mongo:2.0.0-beta.1'
-
-    // -- persistence data configure --
-    implementation 'eu.okaeri:okaeri-configs-json-gson:4.0.9'
-    implementation 'eu.okaeri:okaeri-configs-json-simple:4.0.9'
-
     // -- injector --
     implementation 'eu.okaeri:okaeri-injector:2.1.0'
 
@@ -75,10 +66,4 @@ shadowJar {
     relocate "cc.dreamcode.command", "me.night.giveitem.libs.cc.dreamcode.command"
     relocate "cc.dreamcode.notice", "me.night.giveitem.libs.cc.dreamcode.notice"
 
-    relocate "org.bson", "me.night.giveitem.libs.org.bson"
-    relocate "com.mongodb", "me.night.giveitem.libs.com.mongodb"
-    relocate "com.zaxxer", "me.night.giveitem.libs.com.zaxxer"
-    relocate "org.slf4j", "me.night.giveitem.libs.org.slf4j"
-    relocate "org.json", "me.night.giveitem.libs.org.json"
-    relocate "com.google.gson", "me.night.giveitem.libs.com.google.gson"
 }
